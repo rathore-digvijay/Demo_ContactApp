@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html ng-app = "myApp">
+<head>
+    <link rel="stylesheet" href="bootstrapmin.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <title>Contact List App</title>
+    <script src="/angularmin.js"></script>
+    <script src="controller.js"></script>
+
+</head>
+
+<body>
+    <div class = "container" ng-controller="MyController">
+        <h1>Contact List</h1>
+        
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Contact Id</th>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class = "form-control" ng-model = "contact.cid"></td>
+                    <td><input class = "form-control" ng-model = "contact.name"></td>
+                    <td><input class = "form-control" ng-model = "contact.number"></td>
+                    <td><button class = "btn btn-primary" ng-click = "update(contact.cid, contact.name, contact.number)">Update Contact</button></td>
+                    <td><button class = "btn btn-primary" ng-click = "clear()">Clear</button></td>
+                </tr>
+                <tr ng-repeat = "contact in List">
+                    <td>{{contact.cid}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.number}}</td>
+                    <td><button class="btn btn-danger" ng-click = "delete(contact.cid)">Delete</button></td>
+                    <td><button class="btn btn-danger" ng-click = "edit(contact)">Edit</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    
+    </div>
+</body>
+</html>
+
